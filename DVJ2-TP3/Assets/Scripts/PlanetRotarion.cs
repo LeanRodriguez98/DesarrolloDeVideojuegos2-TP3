@@ -22,11 +22,15 @@ public class PlanetRotarion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Angle += TraslationSpeed * Time.deltaTime;
-        Vector3 newPos = Vector3.zero;
-        newPos.x = RotateAround.transform.position.x + Radius * Mathf.Cos(Angle * Mathf.Deg2Rad);
-        newPos.z = RotateAround.transform.position.z + Radius * Mathf.Sin(Angle * Mathf.Deg2Rad);
-        transform.position = newPos;       
-        transform.Rotate(transform.up * RotationSpeed * Time.deltaTime);
+        if (!Ship.instance.stopPlanets)
+        {
+            Angle += TraslationSpeed * Time.deltaTime;
+            Vector3 newPos = Vector3.zero;
+            newPos.x = RotateAround.transform.position.x + Radius * Mathf.Cos(Angle * Mathf.Deg2Rad);
+            newPos.z = RotateAround.transform.position.z + Radius * Mathf.Sin(Angle * Mathf.Deg2Rad);
+            transform.position = newPos;
+
+            transform.Rotate(transform.up * RotationSpeed * Time.deltaTime);
+        }
     }
 }

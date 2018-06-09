@@ -21,9 +21,6 @@ public class SplashScreen : MonoBehaviour {
         NewColor.g = 255;
         NewColor.r = 255;
         Image01 = this.GetComponent<RawImage>();
-
-        
-
     }
 
     // Update is called once per frame

@@ -14,13 +14,19 @@ public class Ship : MonoBehaviour
     public float consumptionIDDLE = 1;
     public float consuptionMOVING = 2.5f;
     public Camera mainCamera;
-    public float distanceTarget = 5;
-    public float offset_X = 2;
+    
+    public float offset_X;
+    public float offset_Y;
+    public float offset_Z;
 
     [HideInInspector] public bool stopPlanets = false;
+
     private Vector3 cameraPos;
     private Quaternion cameraRot;
-
+    
+    Vector3 otherPos;
+    public int CameraSlow;
+    private int cameraSlowAux;
     private void Awake()
     {
         instance = this;
@@ -41,6 +47,12 @@ public class Ship : MonoBehaviour
             instance.stopPlanets = false;
             mainCamera.transform.position = cameraPos;
             mainCamera.transform.rotation = cameraRot;
+        }
+
+        if (cameraSlowAux > 0)
+        {
+            CameraMovement();
+            cameraSlowAux--;
         }
 
     }
@@ -95,27 +107,22 @@ public class Ship : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-       
-
         if (other.gameObject.CompareTag("m_Planet"))
         {
             Renderer otherRend = other.gameObject.GetComponent<Renderer>();
             otherRend.material.shader = Shader.Find("ShaderPiola"); //Hacer un buen shader en algun momento
-           
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                
-                 
-                 
+
                 instance.stopPlanets = true;
-                mainCamera.transform.rotation = other.transform.rotation;
+                //mainCamera.transform.rotation = other.transform.rotation;
 
-                float otherX = other.transform.position.x - offset_X;
-                float otherY = other.transform.position.y;
-                float otherZ = other.transform.position.z - distanceTarget;
-
-                Vector3 otherPos = new Vector3(otherX, otherY, otherZ);
-                mainCamera.transform.position = otherPos;
+                otherPos.x = ((mainCamera.transform.position.x - other.transform.position.x) - offset_X)/ CameraSlow;
+                otherPos.y = ((mainCamera.transform.position.y - other.transform.position.y) - offset_Y) / CameraSlow;
+                otherPos.z = ((mainCamera.transform.position.z - other.transform.position.z) + offset_Z) / CameraSlow;
+                
+                cameraSlowAux = CameraSlow;
             }
         }
     }
@@ -127,6 +134,11 @@ public class Ship : MonoBehaviour
             Renderer otherRend = other.gameObject.GetComponent<Renderer>();
             otherRend.material.shader = Shader.Find("Standard");
         }
+    }
+
+    void CameraMovement()
+    {
+        mainCamera.transform.position -= Vector3.Lerp(cameraPos, otherPos, 1);
     }
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlanetRotarion : MonoBehaviour {
     public GameObject RotateAround;
+    public Rigidbody m_rigidbody;
     private float Radius;
     public float TraslationSpeed;
     public float Angle;
@@ -19,6 +20,7 @@ public class PlanetRotarion : MonoBehaviour {
         TraslationSpeed += Random.Range(-5, 5);
         if (TraslationSpeed <= 0)
             TraslationSpeed = 1;
+        m_rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,12 @@ public class PlanetRotarion : MonoBehaviour {
             newPos.z = RotateAround.transform.position.z + Radius * Mathf.Sin(Angle * Mathf.Deg2Rad);
             transform.position = newPos;
             transform.Rotate(transform.up * RotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX |
+                                      RigidbodyConstraints.FreezeRotationY |
+                                      RigidbodyConstraints.FreezeRotationZ;
         }
 
     }

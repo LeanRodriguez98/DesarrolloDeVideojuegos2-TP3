@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour {
+public class Ship : MonoBehaviour
+{
 
     public static Ship instance;
 
@@ -27,7 +28,8 @@ public class Ship : MonoBehaviour {
         cameraRot = mainCamera.transform.rotation;
     }
 
-    void Update() {
+    void Update()
+    {
         if (!instance.stopPlanets)
         {
             Movement();
@@ -55,27 +57,27 @@ public class Ship : MonoBehaviour {
         {
             angleBtw = 360 - angleBtw;
         }
-
+        
         return angleBtw;
     }
     private void Movement() //Movimiento de la nave
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        
-        
+
+
         Vector3 movement = new Vector3(h * speed, 0, v * speed);
-        
+
         Vector3 lastPosition = transform.position;
-        
+
         Vector3 newPosition = transform.position + movement * Time.deltaTime;
-        
+
         float newAngleY = GetRealAngle(lastPosition, newPosition);
-        
+
         Quaternion currentRotation = transform.rotation;
         Quaternion newRotation = Quaternion.Slerp(currentRotation, Quaternion.AngleAxis(newAngleY, Vector3.up),
             rotationSpeed * Time.deltaTime);
-        
+
         transform.position = newPosition;
         if (h != 0 || v != 0)
         {
@@ -93,13 +95,18 @@ public class Ship : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+       
+
         if (other.gameObject.CompareTag("m_Planet"))
         {
             Renderer otherRend = other.gameObject.GetComponent<Renderer>();
             otherRend.material.shader = Shader.Find("ShaderPiola"); //Hacer un buen shader en algun momento
-
+           
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                
+                 
+                 
                 instance.stopPlanets = true;
                 mainCamera.transform.rotation = other.transform.rotation;
 
@@ -122,3 +129,4 @@ public class Ship : MonoBehaviour {
         }
     }
 }
+

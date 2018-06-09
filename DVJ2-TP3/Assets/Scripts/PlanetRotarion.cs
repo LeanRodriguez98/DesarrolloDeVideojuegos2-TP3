@@ -8,6 +8,7 @@ public class PlanetRotarion : MonoBehaviour {
     public float TraslationSpeed;
     public float Angle;
     public float RotationSpeed;
+
     // Use this for initialization
     void Start () {
 
@@ -29,8 +30,8 @@ public class PlanetRotarion : MonoBehaviour {
             newPos.x = RotateAround.transform.position.x + Radius * Mathf.Cos(Angle * Mathf.Deg2Rad);
             newPos.z = RotateAround.transform.position.z + Radius * Mathf.Sin(Angle * Mathf.Deg2Rad);
             transform.position = newPos;
-
             transform.Rotate(transform.up * RotationSpeed * Time.deltaTime);
         }
+
     }
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135391080405988248}
   - component: {fileID: 23594874408017864}
   - component: {fileID: 114921677415590042}
-  - component: {fileID: 54951513604512740}
+  - component: {fileID: 54679497305082612}
   m_Layer: 0
   m_Name: Planet01
   m_TagString: m_Planet
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601205063004964}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54951513604512740
+--- !u!54 &54679497305082612
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

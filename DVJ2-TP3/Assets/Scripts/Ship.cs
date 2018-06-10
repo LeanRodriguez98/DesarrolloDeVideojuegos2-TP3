@@ -27,9 +27,12 @@ public class Ship : MonoBehaviour
     Vector3 otherPos;
     public int CameraSlow;
     private int cameraSlowAux;
+
+    [HideInInspector] public bool LandPlanetButton;
     private void Awake()
     {
         instance = this;
+        LandPlanetButton = false;
         cameraPos = mainCamera.transform.position;
         cameraRot = mainCamera.transform.rotation;
     }
@@ -45,6 +48,8 @@ public class Ship : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             instance.stopPlanets = false;
+            LandPlanetButton = false;
+
             mainCamera.transform.position = cameraPos;
             mainCamera.transform.rotation = cameraRot;
         }
@@ -116,7 +121,8 @@ public class Ship : MonoBehaviour
             {
 
                 instance.stopPlanets = true;
-                //mainCamera.transform.rotation = other.transform.rotation;
+                LandPlanetButton = true;
+
 
                 otherPos.x = ((mainCamera.transform.position.x - other.transform.position.x) - offset_X)/ CameraSlow;
                 otherPos.y = ((mainCamera.transform.position.y - other.transform.position.y) - offset_Y) / CameraSlow;

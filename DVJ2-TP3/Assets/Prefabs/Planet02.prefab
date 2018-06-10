@@ -114,6 +114,7 @@ MonoBehaviour:
   RotateAround: {fileID: 1991298473105548, guid: b0a6518275a3b47428b04af6daaad7a8,
     type: 2}
   m_rigidbody: {fileID: 54858712019769274}
+  LandButton: {fileID: 0}
   TraslationSpeed: 75
   Angle: 0
   RotationSpeed: 8

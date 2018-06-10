@@ -25,18 +25,18 @@ public class SplashScreen : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
+
         if (!FadeOut && Alpha < 1)
         {
             Alpha += Time.deltaTime / Fade;
-         
+
             NewColor.a = Alpha;
             Image01.color = NewColor;
         }
         else
         {
             time += Time.deltaTime;
-            if ( time >= wait)
+            if (time >= wait)
             {
                 FadeOut = true;
                 Alpha -= Time.deltaTime / Fade;
@@ -44,5 +44,6 @@ public class SplashScreen : MonoBehaviour {
                 Image01.color = NewColor;
             }
         }
+
     }
 }

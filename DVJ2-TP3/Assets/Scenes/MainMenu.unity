@@ -544,6 +544,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1482850724}
+  - component: {fileID: 1482850723}
   m_Layer: 0
   m_Name: CanvasManager
   m_TagString: Untagged
@@ -551,6 +552,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1482850723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1482850722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ea84a9078ab2246a974c7af635840c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon01: {fileID: 835376498}
+  icon02: {fileID: 1970757348}
 --- !u!4 &1482850724
 Transform:
   m_ObjectHideFlags: 0

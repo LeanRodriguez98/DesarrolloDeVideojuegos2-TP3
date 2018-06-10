@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetRotarion : MonoBehaviour {
+public class Planets : MonoBehaviour {
     public GameObject RotateAround;
     public Rigidbody m_rigidbody;
     private float Radius;

@@ -114,7 +114,12 @@ public class PlayerController : MonoBehaviour
         timerDesactivationSword = originalTimerDesactiationSword;
     }
 
-    
-
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("m_Item"))
+        {
+            ItemPickup item = other.gameObject.GetComponent<ItemPickup>();
+            item.PickUp();
+        }
+    }
 }

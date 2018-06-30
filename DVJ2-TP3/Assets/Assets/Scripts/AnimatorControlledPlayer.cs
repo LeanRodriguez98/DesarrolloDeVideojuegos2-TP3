@@ -25,7 +25,7 @@ public class AnimatorControlledPlayer : MonoBehaviour
             //animator.SetFloat("Speed", 1); si vale 1 camina
             //animator.SetFloat("Speed", 0); si vale 0 se queda quieto
 
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 animator.SetTrigger("Attack");
             }

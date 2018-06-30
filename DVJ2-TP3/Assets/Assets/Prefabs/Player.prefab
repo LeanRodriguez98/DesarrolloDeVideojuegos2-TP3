@@ -924,8 +924,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.20329121, y: 0.07771612, z: 0.8824651}
-  m_Center: {x: -0.06561857, y: 0.045628913, z: 0.38167614}
+  m_Size: {x: 0.20329121, y: 0.07771612, z: 0.9688411}
+  m_Center: {x: -0.06561857, y: 0.045628976, z: 0.4248641}
 --- !u!65 &65998734595226902
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -999,7 +999,7 @@ MonoBehaviour:
   speed: 0.1
   enemigo01: {fileID: 114518205956464410, guid: b311efb7c29a37c4d91855a5efede2bd,
     type: 2}
-  damage: 50
+  damage: 25
   speedJump: 5
 --- !u!124 &124787497450957544
 Behaviour:

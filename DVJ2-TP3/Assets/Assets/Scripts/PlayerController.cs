@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             swordPlayer.SetActive(false);
         }
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             //Attack();
             enabledAttack = true;
@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 timerShook = 0.1f;
                 shook = false;
                 transform.Translate(0, 0, 0);
+                
             }
         }
     }
@@ -108,7 +109,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy01")
         {
             life = life - enemigo01.GetDamage();
-            transform.Translate(0, 0, ((vertical + distanceShook) * speed)* -1);
+            //transform.Translate(0, 0, ((vertical + distanceShook) * speed)* -1);
+            rig.AddForce(-Vector3.forward, ForceMode.Impulse);
             Debug.Log("Vida Jugador:"+life);
             if (life <= 0)
             {

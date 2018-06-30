@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - m_Planet
+  - SwordPlayer
+  - Enemy01
+  - m_Item
   layers:
   - Default
   - TransparentFX

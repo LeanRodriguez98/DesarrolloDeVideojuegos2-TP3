@@ -114,15 +114,14 @@ public class Ship : MonoBehaviour
     {
         if (other.gameObject.CompareTag("m_Planet"))
         {
-            Renderer otherRend = other.gameObject.GetComponent<Renderer>();
-            otherRend.material.shader = Shader.Find("ShaderPiola"); //Hacer un buen shader en algun momento
+            //Hacer un buen shader en algun momento
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
 
                 instance.stopPlanets = true;
-                LandPlanetButton = true;
-
+                if (other.GetComponent<Planets>().Landable)
+                    LandPlanetButton = true;
 
                 otherPos.x = ((mainCamera.transform.position.x - other.transform.position.x) - offset_X)/ CameraSlow;
                 otherPos.y = ((mainCamera.transform.position.y - other.transform.position.y) - offset_Y) / CameraSlow;

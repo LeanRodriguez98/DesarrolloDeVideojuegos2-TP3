@@ -11,10 +11,10 @@ public class Planets : MonoBehaviour {
     public float TraslationSpeed;
     public float Angle;
     public float RotationSpeed;
+    public bool Landable;
 
     // Use this for initialization
     void Start () {
-
 		Radius = Mathf.Sqrt((transform.position.x - RotateAround.transform.position.x *
             transform.position.x - RotateAround.transform.position.x) + 
             (transform.position.z - RotateAround.transform.position.x *

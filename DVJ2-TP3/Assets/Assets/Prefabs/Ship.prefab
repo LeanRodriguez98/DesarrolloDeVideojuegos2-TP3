@@ -222,16 +222,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e8db37b00387d49a5c5db1959ace5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 3
+  speed: 10
+  rotationSpeed: 7
   angle: 0
   fuel: 100
   consumptionIDDLE: 1
   consuptionMOVING: 2.5
   mainCamera: {fileID: 0}
-  distanceTarget: 5
   offset_X: 2
+  offset_Y: 0
+  offset_Z: 0
   stopPlanets: 0
+  CameraSlow: 0
+  LandPlanetButton: 0
 --- !u!135 &135348217835151444
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -117,6 +117,7 @@ MonoBehaviour:
   TraslationSpeed: 10
   Angle: 0
   RotationSpeed: 8
+  Landable: 1
 --- !u!135 &135742380306804824
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BottonsManager : MonoBehaviour {
-    public Ship _Ship;
     public GameObject Button01;
     public GameObject Button02;
     public GameObject Button03;
@@ -11,12 +11,11 @@ public class BottonsManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _Ship = Ship.instance;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (_Ship.LandPlanetButton)
+        if (Ship.instance.LandPlanetButton)
         {
             LandButton.SetActive(true);
         }
@@ -50,4 +49,21 @@ public class BottonsManager : MonoBehaviour {
         Debug.Log("TEST");
     }
 
+    public void Land()
+    {
+        switch (Ship.instance.target.type)
+        {
+            case PlanetType.Type01:
+                SceneManager.LoadScene("Planet01");
+                break;
+            case PlanetType.Type02:
+                SceneManager.LoadScene("Planet02");
+                break;
+            case PlanetType.Type03:
+                SceneManager.LoadScene("Planet03");
+                break;
+            default:
+                break;
+        }
+    }
 }

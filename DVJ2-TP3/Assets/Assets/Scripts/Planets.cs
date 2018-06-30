@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlanetType
+{
+    Type01,
+    Type02,
+    Type03
+}
 
 public class Planets : MonoBehaviour {
     public GameObject RotateAround;
@@ -12,6 +18,7 @@ public class Planets : MonoBehaviour {
     public float Angle;
     public float RotationSpeed;
     public bool Landable;
+    public PlanetType type;
 
     // Use this for initialization
     void Start () {

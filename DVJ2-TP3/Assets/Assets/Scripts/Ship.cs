@@ -14,12 +14,13 @@ public class Ship : MonoBehaviour
     public float consumptionIDDLE = 1;
     public float consuptionMOVING = 2.5f;
     public Camera mainCamera;
-    
+
     public float offset_X;
     public float offset_Y;
     public float offset_Z;
 
     [HideInInspector] public bool stopPlanets = false;
+    [HideInInspector] public Planets target;
 
     private Vector3 cameraPos;
     private Quaternion cameraRot;
@@ -115,12 +116,12 @@ public class Ship : MonoBehaviour
         if (other.gameObject.CompareTag("m_Planet"))
         {
             //Hacer un buen shader en algun momento
+            target = other.GetComponent<Planets>();
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-
                 instance.stopPlanets = true;
-                if (other.GetComponent<Planets>().Landable)
+                if (target.Landable)
                     LandPlanetButton = true;
 
                 otherPos.x = ((mainCamera.transform.position.x - other.transform.position.x) - offset_X)/ CameraSlow;

@@ -4,39 +4,38 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 // controles:
 // movimiento: w,a,s,d
-// atacar: click izquierdo del mous 
+// atacar: click izquierdo del mouse
 // espacio: saltar.
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instancie;
     private bool moving;
-    protected Rigidbody rig;
+    private Rigidbody rig;
     public GameObject swordPlayer;
-    private float timerDesactivationSword;
-    private float timerActivationSword;
-    private float timerShook;
+    public float timerDesactivationSword;
+    public float timerActivationSword;
+    public float timerShook;
     bool enabledAttack = false;
     public float speed;
-    private float life;
-    private bool shook;
-    public Enemy01 enemigo01;
-    public float damage;// force es la cantidad de daño que le hara al enemigo
+    public float life;
+    private bool shook;   
+    public float damage;
     private float vertical;
     private float horizontal;
-    private float distanceShook;
+    public float distanceShook;
     public float speedJump;
+    private float originalTimerActiationSword;
+    private float originalTimerDesactiationSword;
 
     void Start()
     {
         instancie = this;
         rig = GetComponent<Rigidbody>();
-        life = 100;
-        timerDesactivationSword = 0.5f;
-        timerActivationSword = 0.5f;
-        timerShook = 0.1f;
+        originalTimerActiationSword = timerDesactivationSword;
+        originalTimerDesactiationSword = timerDesactivationSword;
         shook = false;
-        distanceShook = 12;
+     
     }
 
     void Update()
@@ -49,29 +48,35 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
         }
+
         if (timerDesactivationSword > 0)
         {
             timerDesactivationSword = timerDesactivationSword - Time.deltaTime;
         }
+
         if (timerDesactivationSword <= 0)
         {
             swordPlayer.SetActive(false);
         }
+
         if (Input.GetButtonDown("Fire1"))
         {
-            //Attack();
+           
             enabledAttack = true;
         }
+
         if (enabledAttack)
         {
             timerActivationSword = timerActivationSword - Time.deltaTime;
         }
+
         if (timerActivationSword <= 0)
         {
             Attack();
-            timerActivationSword = 0.5f;
+            timerActivationSword = originalTimerActiationSword;
             enabledAttack = false;
         }
+
         if (shook)
         {
             timerShook = timerShook - Time.deltaTime;
@@ -83,6 +88,11 @@ public class PlayerController : MonoBehaviour
                 
             }
         }
+
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()
@@ -92,34 +102,19 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         transform.Rotate(0, horizontal, 0);
     }
+
     private void Jump()
     {
         rig.AddForce(new Vector3(0, speedJump, 0), ForceMode.VelocityChange);
     }
+
     private void Attack()
-    {
-            
+    {            
         swordPlayer.SetActive(true);
-        timerDesactivationSword = 0.5f;
+        timerDesactivationSword = originalTimerDesactiationSword;
     }
-    public float GetDamage()
-    {
-        return damage;
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy01")
-        {
-            life = life - enemigo01.GetDamage();
-            //transform.Translate(0, 0, ((vertical + distanceShook) * speed)* -1);
-            //rig.AddExplosionForce()
-            Debug.Log("Vida Jugador:"+life);
-            if (life <= 0)
-            {
-                //Debug.Log("GameOver");
-                SceneManager.LoadScene("Game Over");
-                //aqui deberia de cambiar de esena.
-            }
-        }
-    }
+
+    
+
+
 }

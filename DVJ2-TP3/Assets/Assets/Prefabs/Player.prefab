@@ -996,10 +996,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPlayer: {fileID: 1668044685395636}
+  timerDesactivationSword: 0.5
+  timerActivationSword: 0.5
+  timerShook: 0.1
   speed: 0.1
-  enemigo01: {fileID: 114518205956464410, guid: b311efb7c29a37c4d91855a5efede2bd,
-    type: 2}
+  life: 100
   damage: 25
+  distanceShook: 12
   speedJump: 5
 --- !u!124 &124787497450957544
 Behaviour:

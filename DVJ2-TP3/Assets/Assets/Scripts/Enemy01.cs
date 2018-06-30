@@ -8,6 +8,7 @@ public class Enemy01 : MonoBehaviour {
     public PlayerController player;
     private float life = 100;
     public float damage;
+    public float speed;
 	void Start () {
 		
 	}
@@ -33,4 +34,9 @@ public class Enemy01 : MonoBehaviour {
     {
         return damage;
     }
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
 }

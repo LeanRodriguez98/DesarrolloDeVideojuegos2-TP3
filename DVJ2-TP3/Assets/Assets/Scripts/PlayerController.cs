@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instancie;
     private bool moving;
     protected Rigidbody rig;
     public GameObject swordPlayer;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        instancie = this;
         rig = GetComponent<Rigidbody>();
         life = 100;
         timerDesactivationSword = 0.5f;
@@ -110,7 +112,7 @@ public class PlayerController : MonoBehaviour
         {
             life = life - enemigo01.GetDamage();
             //transform.Translate(0, 0, ((vertical + distanceShook) * speed)* -1);
-            rig.AddForce(-Vector3.forward, ForceMode.Impulse);
+            //rig.AddExplosionForce()
             Debug.Log("Vida Jugador:"+life);
             if (life <= 0)
             {

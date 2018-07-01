@@ -12,6 +12,8 @@ public class Consumables : Item {
         PlayerController.instancie.life += healthRecovery;
         PlayerController.instancie.damage += damageModifier;
         PlayerController.instancie.speed += speedModifier;
+
+        RemoveFromInventory();
         base.Use();
     }
 }

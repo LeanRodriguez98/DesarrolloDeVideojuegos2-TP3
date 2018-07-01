@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c90d1278b8c2a64ab5d99ca916df583, type: 3}
+  m_Name: Potion Of ALL
+  m_EditorClassIdentifier: 
+  itemName: Potion of All
+  icon: {fileID: 21300000, guid: 0c6271a290ef75b4c97d58746c86c5b8, type: 3}
+  healthRecovery: 20
+  damageModifier: 5
+  speedModifier: 0.1

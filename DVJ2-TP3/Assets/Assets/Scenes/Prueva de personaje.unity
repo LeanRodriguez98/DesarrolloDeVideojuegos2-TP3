@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 20008650}
   - component: {fileID: 20008649}
   - component: {fileID: 20008648}
-  - component: {fileID: 20008652}
+  - component: {fileID: 20008653}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -208,7 +208,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &20008652
+--- !u!114 &20008653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -216,10 +216,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 20008647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cacdbab89cfe6404d8a51bdb8fcdad65, type: 3}
+  m_Script: {fileID: 11500000, guid: beae54a23ede0c742be8b23ce3b45090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsParent: {fileID: 436512429}
+  itemParent: {fileID: 436512429}
+  UI: {fileID: 1203286761}
 --- !u!1001 &44775397
 Prefab:
   m_ObjectHideFlags: 0
@@ -1117,7 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  maxSpace: 2
+  maxSpace: 20
 --- !u!4 &187753162
 Transform:
   m_ObjectHideFlags: 0
@@ -2656,7 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf6ad4ca84a9f247afd951cde56acb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: fbed69558f9d8a64091b90822fe3f5eb, type: 2}
+  item: {fileID: 11400000, guid: 9818d9dd950007e469512ec1046c85a0, type: 2}
 --- !u!23 &910801779
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3111,10 +3112,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1063394781011236, guid: 78edf29657cf0324a833c64031ade578, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78edf29657cf0324a833c64031ade578, type: 2}

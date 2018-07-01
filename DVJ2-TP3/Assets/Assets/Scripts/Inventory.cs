@@ -26,16 +26,14 @@ public class Inventory : MonoBehaviour {
     public int maxSpace = 5;
 
     public bool Add(Item item) {
-        if (items.Count < maxSpace)
-        {
-            items.Add(item);
+        if (items.Count >= maxSpace)
+            return false;
 
-            if (itemChangeCallBack != null)
-                itemChangeCallBack.Invoke();
-            return true;
-        }
+        items.Add(item);
+        if (itemChangeCallBack != null)
+            itemChangeCallBack.Invoke();
 
-        return false;
+        return true;
     }
 
     public void Remove(Item item){

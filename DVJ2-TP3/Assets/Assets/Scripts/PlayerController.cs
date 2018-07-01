@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 // controles:
 // movimiento: w,a,s,d
 // atacar: click izquierdo del mouse
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (!shook)
         {
             Move();

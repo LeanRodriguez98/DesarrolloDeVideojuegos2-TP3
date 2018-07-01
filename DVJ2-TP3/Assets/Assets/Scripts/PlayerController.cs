@@ -46,15 +46,21 @@ public class PlayerController : MonoBehaviour
     {
         //if (EventSystem.current.IsPointerOverGameObject())
         //return;
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null)
         {
-            activeInventory = true;
-            animator.SetFloat("Speed", 0);
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                activeInventory = true;
+                animator.SetFloat("Speed", 0);
+            }
+            else
+            {
+                activeInventory = false;
+            }
         }
-        else
-        {
-            activeInventory = false;
-        }
+       
+
+
         if (!activeInventory)
         {
             if (!shook)

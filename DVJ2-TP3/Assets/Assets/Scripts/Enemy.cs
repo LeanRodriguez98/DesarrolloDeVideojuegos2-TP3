@@ -31,5 +31,15 @@ public class Enemy : MonoBehaviour {
         {
             life -= PlayerController.instancie.damage;
         }
+
+       
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "m_HealArea")
+        {
+            life++; ;
+        }
+    }
+
 }

@@ -1189,7 +1189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d60d0b6b9776c48a2070588d89bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
+  targets:
+  - {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
   isTarget: 0
 --- !u!135 &135704117984128082
 SphereCollider:

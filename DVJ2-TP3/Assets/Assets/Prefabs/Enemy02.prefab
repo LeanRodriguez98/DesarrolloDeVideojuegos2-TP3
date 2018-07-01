@@ -451,7 +451,6 @@ GameObject:
   - component: {fileID: 54596441894462804}
   - component: {fileID: 65540920534146522}
   - component: {fileID: 65911992320910524}
-  - component: {fileID: 114655968837395986}
   - component: {fileID: 114525144363854474}
   m_Layer: 9
   m_Name: Enemy02
@@ -1167,26 +1166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d60d0b6b9776c48a2070588d89bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
+  targets:
+  - {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
   isTarget: 0
---- !u!114 &114655968837395986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1836623933739808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747cba5f33bf41f49b240e5b1ca0fd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCollider: {fileID: 114554978132750538}
-  life: 100
-  damage: 0
-  speed: 2
-  Arrow: {fileID: 1082644304627172, guid: 9f61939aee666ec4c94622c05a28fddf, type: 2}
-  ShootTimer: 1
-  ShootHeight: 0
 --- !u!135 &135068511456754884
 SphereCollider:
   m_ObjectHideFlags: 1

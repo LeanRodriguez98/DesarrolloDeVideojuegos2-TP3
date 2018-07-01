@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
     private float originalTimerActiationSword;
     private float originalTimerDesactiationSword;
     private bool activeInventory;
-    private char stateAnimation;
-    private int StopSpeedAnimation;
     void Start()
     {
         instancie = this;
@@ -41,26 +39,28 @@ public class PlayerController : MonoBehaviour
         originalTimerDesactiationSword = timerDesactivationSword;
         shook = false;
         activeInventory = false;
-        StopSpeedAnimation = 0;
 
     }
 
     void Update()
     {
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //return;
         if (EventSystem.current != null)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 activeInventory = true;
                 animator.SetFloat("Speed", 0);
-                stateAnimation = 'I';
             }
             else
             {
                 activeInventory = false;
             }
         }
-        
+       
+
+
         if (!activeInventory)
         {
             if (!shook)
@@ -80,10 +80,9 @@ public class PlayerController : MonoBehaviour
             if (timerDesactivationSword <= 0)
             {
                 swordPlayer.SetActive(false);
-                stateAnimation = 'I';
             }
 
-            if (Input.GetButtonDown("Fire1") && stateAnimation == 'I')
+            if (Input.GetButtonDown("Fire1"))
             {
                 animator.SetTrigger("Attack");
                 enabledAttack = true;
@@ -119,33 +118,26 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private void Attack()
-    {
-        stateAnimation = 'A';
-        swordPlayer.SetActive(true);
-        timerDesactivationSword = originalTimerDesactiationSword;
-    }
+
     private void Move()
     {
-        if (stateAnimation == 'I' && swordPlayer.activeSelf == false)
-        {
-            vertical = Input.GetAxis("Vertical");
-            transform.Translate(0, 0, vertical * speed);
-            horizontal = Input.GetAxis("Horizontal");
-            transform.Rotate(0, horizontal, 0);
-            animator.SetFloat("Speed", Mathf.Abs(horizontal));
-            animator.SetFloat("Speed", Mathf.Abs(vertical));
-            stateAnimation = 'S';
-        }
-        else
-        {
-            animator.SetFloat("Speed", StopSpeedAnimation);
-        }
+        vertical = Input.GetAxis("Vertical");
+        transform.Translate(0, 0, vertical * speed);
+        horizontal = Input.GetAxis("Horizontal");
+        transform.Rotate(0, horizontal, 0);
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        animator.SetFloat("Speed", Mathf.Abs(vertical));
     }
 
     private void Jump()
     {
         rig.AddForce(new Vector3(0, speedJump, 0), ForceMode.VelocityChange);
+    }
+
+    private void Attack()
+    {
+        swordPlayer.SetActive(true);
+        timerDesactivationSword = originalTimerDesactiationSword;
     }
 
     private void OnTriggerEnter(Collider other)

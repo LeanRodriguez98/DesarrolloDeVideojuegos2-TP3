@@ -52,9 +52,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4099369225747972}
   - component: {fileID: 95008312909528860}
-  - component: {fileID: 54858261478523926}
-  - component: {fileID: 114848675041612646}
   - component: {fileID: 65832739062307248}
+  - component: {fileID: 114056124013770394}
   m_Layer: 10
   m_Name: Arrow
   m_TagString: Untagged
@@ -927,21 +926,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011701524903104}
   m_Mesh: {fileID: 4300000, guid: 5ce2592ee4756e144a30199def2fcb64, type: 3}
---- !u!54 &54858261478523926
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1082644304627172}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 36
-  m_CollisionDetection: 0
 --- !u!65 &65832739062307248
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -971,7 +955,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114848675041612646
+--- !u!114 &114056124013770394
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -979,7 +963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082644304627172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19fab52b39beb543a69f438db3474bb, type: 3}
+  m_Script: {fileID: 11500000, guid: a94f2ac53dd892747ad28254a70a6335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ArrowSpeed: 10

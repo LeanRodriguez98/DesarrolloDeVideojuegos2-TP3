@@ -359,6 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4108138783382880}
   - component: {fileID: 65854742515712362}
+  - component: {fileID: 114551964485219762}
   m_Layer: 8
   m_Name: swordPlayer
   m_TagString: SwordPlayer
@@ -825,7 +826,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1404462941470166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.010064, y: 2.3148115, z: 14.864296}
+  m_LocalPosition: {x: 2.011, y: 2.48, z: 1.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4613323079547828}
@@ -970,6 +971,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3827938dcb03cad47bf454ebd9060bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114551964485219762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668044685395636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114810530262013780

@@ -6,7 +6,7 @@ namespace DVJ02.Clase08
 {
 public class AnimatorControlledPlayer : MonoBehaviour
 {
-    private Animator animator;
+   /* private Animator animator;
     // Use this for initialization
     private void Start()
     {
@@ -29,6 +29,6 @@ public class AnimatorControlledPlayer : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
             }
-    }
+    }*/
 }
 }

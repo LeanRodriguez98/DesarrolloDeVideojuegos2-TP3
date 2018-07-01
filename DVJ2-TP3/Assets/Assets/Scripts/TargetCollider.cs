@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetCollider : MonoBehaviour {
     public GameObject target;
-    [HideInInspector]public bool isTarget;
+    public bool isTarget;
 	// Use this for initialization
 	void Start () {
         this.isTarget = false;

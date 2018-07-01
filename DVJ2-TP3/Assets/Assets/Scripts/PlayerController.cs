@@ -11,6 +11,7 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instancie;
+    private Animator animator;
     private bool moving;
     private Rigidbody rig;
     public GameObject swordPlayer;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     bool enabledAttack = false;
     public float speed;
     public float life;
-    private bool shook;   
+    private bool shook;
     public float damage;
     private float vertical;
     private float horizontal;
@@ -28,83 +29,98 @@ public class PlayerController : MonoBehaviour
     public float speedJump;
     private float originalTimerActiationSword;
     private float originalTimerDesactiationSword;
-
+    private bool activeInventory;
     void Start()
     {
         instancie = this;
+        animator = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
         originalTimerActiationSword = timerDesactivationSword;
         originalTimerDesactiationSword = timerDesactivationSword;
         shook = false;
-     
+        activeInventory = false;
+
     }
 
     void Update()
     {
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //return;
         if (EventSystem.current.IsPointerOverGameObject())
-            return;
-
-        if (!shook)
         {
-            Move();
-            if (Input.GetKeyDown(KeyCode.Space))
+            activeInventory = true;
+            animator.SetFloat("Speed", 0);
+        }
+        else
+        {
+            activeInventory = false;
+        }
+        if (!activeInventory)
+        {
+            if (!shook)
             {
-                Jump();
+                Move();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Jump();
+                }
             }
-        }
 
-        if (timerDesactivationSword > 0)
-        {
-            timerDesactivationSword = timerDesactivationSword - Time.deltaTime;
-        }
-
-        if (timerDesactivationSword <= 0)
-        {
-            swordPlayer.SetActive(false);
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-           
-            enabledAttack = true;
-        }
-
-        if (enabledAttack)
-        {
-            timerActivationSword = timerActivationSword - Time.deltaTime;
-        }
-
-        if (timerActivationSword <= 0)
-        {
-            Attack();
-            timerActivationSword = originalTimerActiationSword;
-            enabledAttack = false;
-        }
-
-        if (shook)
-        {
-            timerShook = timerShook - Time.deltaTime;
-            if (timerShook <= 0)
+            if (timerDesactivationSword > 0)
             {
-                timerShook = 0.1f;
-                shook = false;
-                transform.Translate(0, 0, 0);
-                
+                timerDesactivationSword = timerDesactivationSword - Time.deltaTime;
             }
-        }
 
-        if (life <= 0)
-        {
-            Destroy(gameObject);
+            if (timerDesactivationSword <= 0)
+            {
+                swordPlayer.SetActive(false);
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                animator.SetTrigger("Attack");
+                enabledAttack = true;
+            }
+
+            if (enabledAttack)
+            {
+                timerActivationSword = timerActivationSword - Time.deltaTime;
+            }
+
+            if (timerActivationSword <= 0)
+            {
+                Attack();
+                timerActivationSword = originalTimerActiationSword;
+                enabledAttack = false;
+            }
+
+            if (shook)
+            {
+                timerShook = timerShook - Time.deltaTime;
+                if (timerShook <= 0)
+                {
+                    timerShook = 0.1f;
+                    shook = false;
+                    transform.Translate(0, 0, 0);
+
+                }
+            }
+
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     private void Move()
     {
         vertical = Input.GetAxis("Vertical");
-        transform.Translate(0, 0, vertical*speed);
+        transform.Translate(0, 0, vertical * speed);
         horizontal = Input.GetAxis("Horizontal");
         transform.Rotate(0, horizontal, 0);
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        animator.SetFloat("Speed", Mathf.Abs(vertical));
     }
 
     private void Jump()
@@ -113,7 +129,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Attack()
-    {            
+    {
         swordPlayer.SetActive(true);
         timerDesactivationSword = originalTimerDesactiationSword;
     }

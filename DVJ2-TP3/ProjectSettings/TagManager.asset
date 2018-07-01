@@ -7,10 +7,7 @@ TagManager:
   - m_Planet
   - SwordPlayer
   - Enemy01
-<<<<<<< Updated upstream
   - m_Item
-=======
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

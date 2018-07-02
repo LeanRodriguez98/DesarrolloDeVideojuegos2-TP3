@@ -10,12 +10,12 @@ public class MainMenu : MonoBehaviour {
 
     private float appearIn;
     private float time = 0;
-    private SplashScreen splash01;
+   // private SplashScreen splash01;
 
     private void Start()
     {
-        splash01 = icon01.GetComponent<SplashScreen>();
-        appearIn = splash01.wait * 3;
+       // splash01 = icon01.GetComponent<SplashScreen>();
+      //  appearIn = splash01.wait * 3;
     }
 
     // Update is called once per frame

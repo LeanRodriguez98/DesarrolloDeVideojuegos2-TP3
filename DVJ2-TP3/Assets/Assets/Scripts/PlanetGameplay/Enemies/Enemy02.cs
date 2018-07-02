@@ -35,6 +35,7 @@ public class Enemy02 : Enemy {
                 if (ShootTimer >= 0)
                 {
                     Movement();
+<<<<<<< HEAD
                     if (delay <= 0)
                     {
                         animator.SetBool("idle", false);
@@ -55,6 +56,11 @@ public class Enemy02 : Enemy {
         }
         
         
+=======
+                }
+                Shoot();
+            }
+>>>>>>> master
     }
 
     public void Shoot()

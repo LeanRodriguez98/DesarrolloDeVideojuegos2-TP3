@@ -2,36 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
+public class SplashScreen : MonoBehaviour
+{
+    public float Fade;
+    public float wait;
+    public string NextSceneName;
 
-public class SplashScreen : MonoBehaviour {
-    public float Fade = 10;
-    public float wait = 2;
-
-    private RawImage Image01 = null;
+    public RawImage[] SplashImages;
     private float Alpha;
-    private Color NewColor;
-    private bool FadeOut = false;
-    private float time = 0;
+    private Color CurrentColor;
+    private bool FadeOut;
+    private float time;
+    private int CurrentImage;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        time = 0;
         Alpha = 0;
-        NewColor.b = 255;
-        NewColor.g = 255;
-        NewColor.r = 255;
-        Image01 = this.GetComponent<RawImage>();
+        CurrentColor.b = 255;
+        CurrentColor.g = 255;
+        CurrentColor.r = 255;
+        CurrentColor.a = 0;
+        FadeOut = false;
+        CurrentImage = 0;
+        for (int i = 0; i < SplashImages.Length; i++)
+        {
+            SplashImages[i].color = CurrentColor;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         if (!FadeOut && Alpha < 1)
         {
             Alpha += Time.deltaTime / Fade;
 
-            NewColor.a = Alpha;
-            Image01.color = NewColor;
+            CurrentColor.a = Alpha;
+            SplashImages[CurrentImage].color = CurrentColor;
         }
         else
         {
@@ -40,9 +51,20 @@ public class SplashScreen : MonoBehaviour {
             {
                 FadeOut = true;
                 Alpha -= Time.deltaTime / Fade;
-                NewColor.a = Alpha;
-                Image01.color = NewColor;
+                CurrentColor.a = Alpha;
+                SplashImages[CurrentImage].color = CurrentColor;
+                if (Alpha <= 0)
+                {
+                    CurrentImage++;
+                    time = 0;
+                    FadeOut = false;
+                }
             }
+        }
+
+        if (CurrentImage == SplashImages.Length)
+        {
+            SceneManager.LoadScene(NextSceneName);
         }
 
     }

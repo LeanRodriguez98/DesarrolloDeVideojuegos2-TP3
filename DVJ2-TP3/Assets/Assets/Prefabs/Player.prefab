@@ -825,7 +825,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1404462941470166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.011, y: 0.93, z: 0.66}
+  m_LocalPosition: {x: 2.011, y: 0.93, z: -1.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4613323079547828}
@@ -984,14 +984,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPlayer: {fileID: 1668044685395636}
-  timerDesactivationSword: 0.5
-  timerActivationSword: 0.5
+  timerDesactivationSword: 1
+  timerActivationSword: 1
   timerShook: 0.1
   speed: 0.1
   life: 100
   damage: 25
   distanceShook: 12
   speedJump: 5
+  TimeOfInvulnerability: 0.2
 --- !u!124 &124787497450957544
 Behaviour:
   m_ObjectHideFlags: 1

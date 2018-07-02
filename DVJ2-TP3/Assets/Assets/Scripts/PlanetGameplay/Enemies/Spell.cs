@@ -36,6 +36,8 @@ public class Spell : MonoBehaviour {
         {
             PlayerController.instancie.life -= damage;
             Instantiate(ExplotionParticles, transform.position, Quaternion.identity);
+            PlayerController.instancie.TimeOfInvulnerability = 0;
+
             Destroy(gameObject);
         }
     }

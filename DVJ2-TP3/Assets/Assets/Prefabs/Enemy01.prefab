@@ -490,6 +490,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1834935939807190
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4849064006223054}
+  - component: {fileID: 65364674411386004}
+  - component: {fileID: 114171738917448730}
+  m_Layer: 9
+  m_Name: swordEnemy
+  m_TagString: SwordEnemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1848023967857332
 GameObject:
   m_ObjectHideFlags: 1
@@ -599,7 +616,8 @@ Transform:
   m_LocalRotation: {x: 0.0052523324, y: -0.019094137, z: -0.043724984, w: 0.99884737}
   m_LocalPosition: {x: -0.072080486, y: 0.037684135, z: 0.03847424}
   m_LocalScale: {x: 1.0408634, y: 1.0408636, z: 1.0408633}
-  m_Children: []
+  m_Children:
+  - {fileID: 4849064006223054}
   m_Father: {fileID: 4046738170155840}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -952,6 +970,19 @@ Transform:
   m_Father: {fileID: 4687036524616466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4849064006223054
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834935939807190}
+  m_LocalRotation: {x: 0.000117184565, y: 0.0047114203, z: -0.045235917, w: 0.99896526}
+  m_LocalPosition: {x: -0.001, y: -0.014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4038326157129264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.038000003, y: 0.53900003, z: -5.1850004}
 --- !u!4 &4854506996938556
 Transform:
   m_ObjectHideFlags: 1
@@ -1134,6 +1165,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!65 &65364674411386004
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834935939807190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0993314, y: 0.050450426, z: 0.793831}
+  m_Center: {x: -0.014173059, y: 0.011554141, z: 0.37950313}
 --- !u!65 &65953333457502666
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1178,6 +1221,19 @@ MonoBehaviour:
   life: 100
   damage: 20
   speed: 1
+  swordEnemy: {fileID: 1834935939807190}
+--- !u!114 &114171738917448730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834935939807190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3434ee5cbb7fa594e86b531e39db965f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy01: {fileID: 114148695139296954}
 --- !u!114 &114640965563680008
 MonoBehaviour:
   m_ObjectHideFlags: 1

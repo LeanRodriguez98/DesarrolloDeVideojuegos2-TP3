@@ -34,6 +34,8 @@ public class Arrow : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             PlayerController.instancie.life -= damage;
+            PlayerController.instancie.TimeOfInvulnerability = 0;
+
             Destroy(gameObject);
         }
     }

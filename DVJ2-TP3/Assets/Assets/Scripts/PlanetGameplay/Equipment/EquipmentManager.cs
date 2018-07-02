@@ -19,6 +19,9 @@ public class EquipmentManager : MonoBehaviour {
     }
     #endregion
 
+    public delegate void OnEquipChange();
+    public OnEquipChange equipCallBack;
+
     public Equipment[] currentEquipment;
 
     private void Start()

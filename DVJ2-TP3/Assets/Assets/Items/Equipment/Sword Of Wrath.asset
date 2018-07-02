@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e34aaa2ac3aa0142817acc3db6a62fb, type: 3}
-  m_Name: Helmet Of Protection
+  m_Name: Sword Of Wrath
   m_EditorClassIdentifier: 
-  itemName: Helmet Of Protection
-  icon: {fileID: 21300000, guid: dacae39aa96395448b33c702d6c5db5d, type: 3}
-  slot: 0
-  armorModiefier: 2
+  itemName: Sword Of Wrath
+  icon: {fileID: 21300000, guid: f742aa32737423346b5593e68ef83d2a, type: 3}
+  slot: 2
+  armorModiefier: 0
   damageModifier: 0

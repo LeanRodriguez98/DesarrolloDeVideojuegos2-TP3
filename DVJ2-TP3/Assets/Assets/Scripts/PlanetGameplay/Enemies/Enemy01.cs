@@ -12,7 +12,7 @@ public class Enemy01 : Enemy {
         state = 'I';
     }
 	void Update () {
-        //Destroy();
+        Destroy();
 
         if (targetCollider != null)
         {

@@ -15,14 +15,17 @@ public class BottonsManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Ship.instance.LandPlanetButton)
+        if (Ship.instance != null)
         {
-            LandButton.SetActive(true);
-        }
-        else
-        {
-            LandButton.SetActive(false);
-        }
+            if (Ship.instance.LandPlanetButton)
+            {
+                LandButton.SetActive(true);
+            }
+            else
+            {
+                LandButton.SetActive(false);
+            }
+        }        
     }
 
     public void Pause()
@@ -30,17 +33,23 @@ public class BottonsManager : MonoBehaviour {
         if (Time.timeScale > 0)
         {
             Time.timeScale = 0;
-            Button01.SetActive(true);
-            Button02.SetActive(true);
-            Button03.SetActive(true);
+            if (Button01 != null)            
+                Button01.SetActive(true);
+            if (Button02 != null)
+                Button02.SetActive(true);
+            if (Button03 != null)
+                Button03.SetActive(true);
 
         }
         else
         {
             Time.timeScale = 1;
-            Button01.SetActive(false);
-            Button02.SetActive(false);
-            Button03.SetActive(false);
+            if (Button01 != null)
+                Button01.SetActive(false);
+            if (Button02 != null)
+                Button02.SetActive(false);
+            if (Button03 != null)
+                Button03.SetActive(false);
         }
     }
 
@@ -65,5 +74,15 @@ public class BottonsManager : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    public void Change_Scense(string LevelName)
+    {
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+
+        SceneManager.LoadScene(LevelName);
     }
 }

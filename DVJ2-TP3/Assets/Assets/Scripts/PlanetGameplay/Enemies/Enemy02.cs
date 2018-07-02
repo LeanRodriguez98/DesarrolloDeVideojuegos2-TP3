@@ -25,8 +25,10 @@ public class Enemy02 : Enemy {
         if (targetCollider != null)
             if (targetCollider.isTarget == true)
             {
-                if(ShootTimer>=0)
-                Movement();
+                if (ShootTimer >= 0)
+                {
+                    Movement();
+                }
                 Shoot();
             }
     }

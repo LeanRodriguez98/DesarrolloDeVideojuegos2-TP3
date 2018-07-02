@@ -858,7 +858,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700745230543558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.144049, y: 2.3148115, z: 21.11097}
+  m_LocalPosition: {x: 6.37, y: 0.9, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547015186300664}
@@ -1155,7 +1155,7 @@ Animator:
   m_GameObject: {fileID: 1700745230543558}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1851e3e6c3e77d648a0cc1ef90d895fa, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cacf0e7f7522ae346ac5cfa883f6aa0c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1189,7 +1189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d60d0b6b9776c48a2070588d89bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
+  targets:
+  - {fileID: 1404462941470166, guid: 1097f9051ef945a4a81bfd6f393d7415, type: 2}
   isTarget: 0
 --- !u!135 &135704117984128082
 SphereCollider:

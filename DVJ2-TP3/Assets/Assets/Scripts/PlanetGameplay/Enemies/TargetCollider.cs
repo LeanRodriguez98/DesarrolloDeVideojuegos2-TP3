@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetCollider : MonoBehaviour {
-    public GameObject target;
+    public GameObject[] targets;
     public bool isTarget;
 	// Use this for initialization
 	void Start () {
@@ -16,17 +16,24 @@ public class TargetCollider : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == target.tag)
+        for (int i = 0; i < targets.Length; i++)
         {
-            this.isTarget = true;
+            if (other.tag == targets[i].tag)
+            {
+                this.isTarget = true;
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == target.tag)
+        for (int i = 0; i < targets.Length; i++)
         {
-            this.isTarget = false;
+            if (other.tag == targets[i].tag)
+            {
+                this.isTarget = false;
+            }
         }
     }
 }

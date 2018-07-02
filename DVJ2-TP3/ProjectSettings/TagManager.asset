@@ -8,6 +8,7 @@ TagManager:
   - SwordPlayer
   - Enemy01
   - m_Item
+  - m_HealArea
   layers:
   - Default
   - TransparentFX

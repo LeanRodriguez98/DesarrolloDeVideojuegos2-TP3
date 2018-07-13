@@ -1129,7 +1129,7 @@ Animator:
   m_GameObject: {fileID: 1836623933739808}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1851e3e6c3e77d648a0cc1ef90d895fa, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1404ac1d2ff2c5549b81982fa93ec3dd, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   damage: 0
   speed: 2
   Arrow: {fileID: 1082644304627172, guid: aaf1584a3e4ab8c43a8dc1835ae049f6, type: 2}
-  ShootTimer: 1
+  ShootTimer: 2
   ShootHeight: 0
 --- !u!114 &114554978132750538
 MonoBehaviour:

@@ -45,6 +45,7 @@ public class Enemy02 : Enemy
 
     public void Shoot()
     {
+        //Debug.Log("a");
         ShootTimer -= Time.deltaTime;
         /*if (ShootTimer <= 0)
         {
@@ -57,15 +58,16 @@ public class Enemy02 : Enemy
             ShootTimer = AuxShootTimer;
         }*/
 
-        if (ShootTimer >= 0)
+        if (ShootTimer <= 0)
         {
             Movement();
 
             if (delay <= 0)
             {
                 animator.SetBool("idle", false);
-                animator.SetBool("Attacking", false);
-                animator.SetBool("Runing", true);
+                animator.SetBool("Attacking", true);
+                animator.SetBool("Runing", false);
+                Instantiate(Arrow, transform.position, ArrowShootDirection);
 
             }
             else
@@ -74,8 +76,10 @@ public class Enemy02 : Enemy
                 animator.SetBool("Attacking", false);
                 animator.SetBool("Runing", false);
             }
+            ShootTimer = AuxShootTimer;
+
         }
-        Shoot();
+       // Shoot();
 
     }
 

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy02 : Enemy {
+public class Enemy02 : Enemy
+{
     public GameObject Arrow;
     private Animator animator;
     public float ShootTimer;
@@ -21,11 +22,12 @@ public class Enemy02 : Enemy {
         ArrowShootDirection.w = Quaternion.identity.w;
     }
 
-    void Update () {
+    void Update()
+    {
         Destroy();
-        if(delay > 0)
+        if (delay > 0)
         {
-            delay-=Time.deltaTime;
+            delay -= Time.deltaTime;
         }
         //animator.SetFloat("Speed", 0);
         if (targetCollider != null)
@@ -38,13 +40,13 @@ public class Enemy02 : Enemy {
                 }
                 Shoot();
             }
->>>>>>> master
+        }
     }
 
     public void Shoot()
     {
         ShootTimer -= Time.deltaTime;
-        if (ShootTimer <= 0)
+        /*if (ShootTimer <= 0)
         {
             delay = 1;
             animator.SetBool("idle", false);
@@ -53,23 +55,17 @@ public class Enemy02 : Enemy {
             Instantiate(Arrow, transform.position, ArrowShootDirection);
             
             ShootTimer = AuxShootTimer;
-        }
-    }
-}
+        }*/
 
-                if (ShootTimer >= 0)
-                {
-                    Movement();
-<<<<<<< HEAD
-                    if (delay <= 0)
-                    {
-                        animator.SetBool("idle", false);
-                        animator.SetBool("Attacking", false);
-                        animator.SetBool("Runing", true);
+        if (ShootTimer >= 0)
+        {
+            Movement();
 
-                    }
-                }
-                Shoot();
+            if (delay <= 0)
+            {
+                animator.SetBool("idle", false);
+                animator.SetBool("Attacking", false);
+                animator.SetBool("Runing", true);
 
             }
             else
@@ -79,6 +75,14 @@ public class Enemy02 : Enemy {
                 animator.SetBool("Runing", false);
             }
         }
+        Shoot();
+
+    }
+
+}       
+    
+
+
+                
         
         
-=======

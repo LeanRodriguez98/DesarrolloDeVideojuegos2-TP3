@@ -12,6 +12,7 @@ public class Enemy03 : Enemy {
     private float AuxShootTimer;
     private Quaternion SpellShootDirection;
     private float OriginalHealTimer;
+    private Animator animator;
     // Use this for initialization
     void Start () {
         AuxShootTimer = ShootTimer;
@@ -20,6 +21,7 @@ public class Enemy03 : Enemy {
         SpellShootDirection.z = transform.position.z;
         SpellShootDirection.w = Quaternion.identity.w;
         OriginalHealTimer = HealAreaTimer;
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -30,8 +32,10 @@ public class Enemy03 : Enemy {
             if (targetCollider.isTarget == true)
             {
                 if (ShootTimer >= 0)
+                {
                     Movement();
-                    Shoot();
+                }
+                Shoot();
             }
         Heal();
     }
@@ -41,6 +45,7 @@ public class Enemy03 : Enemy {
         ShootTimer -= Time.deltaTime;
         if (ShootTimer <= 0)
         {
+            animator.SetBool("Attack", true);
             Instantiate(Spell, transform.position, SpellShootDirection);
             ShootTimer = AuxShootTimer;
         }

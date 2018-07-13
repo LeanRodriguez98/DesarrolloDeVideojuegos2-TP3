@@ -47,7 +47,7 @@ public class Enemy03 : Enemy {
                 if (ShootTimer >= 0 && delay <= 0)
                 {
                     Movement();
-                    Debug.Log("Corriendo");
+                    
                     animator.SetBool("Attack", false);
                     animator.SetBool("Idle", false);
                     animator.SetBool("run", true);
@@ -75,7 +75,7 @@ public class Enemy03 : Enemy {
             animator.SetBool("run", false);
             Instantiate(Spell, transform.position, SpellShootDirection);
             delay = auxDelay;
-            Debug.Log("Atacando");
+
             if (first)
             {
                 delay = 0;
@@ -83,10 +83,7 @@ public class Enemy03 : Enemy {
             }
             ShootTimer = AuxShootTimer;
         }
-        else
-        { 
-            
-        }
+      
     }
 
     public void Heal()

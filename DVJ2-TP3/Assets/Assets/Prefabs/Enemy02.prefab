@@ -1149,12 +1149,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCollider: {fileID: 114554978132750538}
+  DropPickUps:
+  - {fileID: 1770277308116310, guid: 3ac8980cfaea3d0418b6be39025e80a9, type: 2}
+  - {fileID: 1730965033481324, guid: 8abc906231b60d74aa8ed8c4e74de7b2, type: 2}
+  - {fileID: 1690466913023076, guid: 850784d6a66c8ea4c958e0c0de920223, type: 2}
+  - {fileID: 1234841696586138, guid: dee6381fc2d04e04e8b51216ca65356b, type: 2}
+  - {fileID: 1233974086907424, guid: a0ea9c6bf80fb0c4f84c672e604a1484, type: 2}
+  - {fileID: 1415298553551362, guid: 2343da1429ab605499163c830a85c9ad, type: 2}
+  - {fileID: 1232201065794258, guid: cc497f20132e757449e00470d3eeaa11, type: 2}
+  - {fileID: 1135854726502572, guid: e851bedd856e5254ca0c53a122fda186, type: 2}
+  - {fileID: 1764617525397742, guid: d5bae5da140328c44a495c4fcfe696ae, type: 2}
+  DropProbability: 25
   life: 10
   damage: 0
   speed: 2
   Arrow: {fileID: 1082644304627172, guid: aaf1584a3e4ab8c43a8dc1835ae049f6, type: 2}
   ShootTimer: 2
   ShootHeight: 0
+  delay: 0
 --- !u!114 &114554978132750538
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -837,7 +837,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220556170427954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.921722, y: 0.5, z: -59.43196}
+  m_LocalPosition: {x: 9, y: 0.5, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4553569181294178}
@@ -1186,7 +1186,7 @@ Animator:
   m_GameObject: {fileID: 1220556170427954}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1851e3e6c3e77d648a0cc1ef90d895fa, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13b35cf8fc765f248b55d471e291bea3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1230,6 +1230,7 @@ MonoBehaviour:
   HealAreaTimer: 10
   ShootTimer: 3
   ShootHeight: 0
+  delay: 2
 --- !u!114 &114463834605804864
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -10,9 +10,11 @@ public class Enemy02 : Enemy
     public float ShootHeight;
     private float AuxShootTimer;
     private Quaternion ArrowShootDirection;
-    private float delay;
+    public float delay;
+    private float auxDelay;
     void Start()
     {
+        auxDelay = delay;
         delay = 0;
         animator = GetComponent<Animator>();
         AuxShootTimer = ShootTimer;
@@ -37,26 +39,24 @@ public class Enemy02 : Enemy
                 if (ShootTimer >= 0)
                 {
                     Movement();
+                    animator.SetBool("idle", false);
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Runing", true);
                 }
                 Shoot();
+            }
+            else
+            {
+                animator.SetBool("idle", true);
+                animator.SetBool("Attacking", false);
+                animator.SetBool("Runing", false);
             }
         }
     }
 
     public void Shoot()
     {
-        //Debug.Log("a");
         ShootTimer -= Time.deltaTime;
-        /*if (ShootTimer <= 0)
-        {
-            delay = 1;
-            animator.SetBool("idle", false);
-            animator.SetBool("Attacking", true);
-            animator.SetBool("Runing", false);
-            Instantiate(Arrow, transform.position, ArrowShootDirection);
-            
-            ShootTimer = AuxShootTimer;
-        }*/
 
         if (ShootTimer <= 0)
         {
@@ -68,6 +68,7 @@ public class Enemy02 : Enemy
                 animator.SetBool("Attacking", true);
                 animator.SetBool("Runing", false);
                 Instantiate(Arrow, transform.position, ArrowShootDirection);
+                delay = auxDelay;
 
             }
             else
@@ -79,7 +80,6 @@ public class Enemy02 : Enemy
             ShootTimer = AuxShootTimer;
 
         }
-       // Shoot();
 
     }
 

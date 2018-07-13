@@ -13,9 +13,16 @@ public class Enemy03 : Enemy {
     private Quaternion SpellShootDirection;
     private float OriginalHealTimer;
     private Animator animator;
+    public float delay;
+    private bool first;
+    private float auxDelay;
     // Use this for initialization
     void Start () {
+        first = true;
+        auxDelay = delay;
+        delay = 0;
         AuxShootTimer = ShootTimer;
+        ShootTimer = 0;
         SpellShootDirection.x = transform.position.x;
         SpellShootDirection.y = transform.position.y + ShootHeight;
         SpellShootDirection.z = transform.position.z;
@@ -27,16 +34,34 @@ public class Enemy03 : Enemy {
 	// Update is called once per frame
 	void Update () {
         Destroy();
-
+        if (delay > 0)
+        {
+            delay -= Time.deltaTime;
+        }
         if (targetCollider != null)
+        {
             if (targetCollider.isTarget == true)
             {
-                if (ShootTimer >= 0)
+                Shoot();
+
+                if (ShootTimer >= 0 && delay <= 0)
                 {
                     Movement();
+                    Debug.Log("Corriendo");
+                    animator.SetBool("Attack", false);
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("run", true);
                 }
-                Shoot();
             }
+            else
+            {
+                animator.SetBool("Attack", false);
+                animator.SetBool("Idle", true);
+                animator.SetBool("run", false);
+                first = true;
+            }
+            
+        }
         Heal();
     }
 
@@ -46,8 +71,21 @@ public class Enemy03 : Enemy {
         if (ShootTimer <= 0)
         {
             animator.SetBool("Attack", true);
+            animator.SetBool("Idle", false);
+            animator.SetBool("run", false);
             Instantiate(Spell, transform.position, SpellShootDirection);
+            delay = auxDelay;
+            Debug.Log("Atacando");
+            if (first)
+            {
+                delay = 0;
+                first = false;
+            }
             ShootTimer = AuxShootTimer;
+        }
+        else
+        { 
+            
         }
     }
 

@@ -57,7 +57,7 @@ public class Enemy02 : Enemy
             ShootTimer = AuxShootTimer;
         }*/
 
-        if (ShootTimer <= 0)
+        if (ShootTimer >= 0)
         {
             Movement();
 

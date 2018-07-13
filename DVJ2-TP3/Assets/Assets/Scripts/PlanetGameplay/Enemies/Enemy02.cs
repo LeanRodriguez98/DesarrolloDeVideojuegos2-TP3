@@ -35,6 +35,31 @@ public class Enemy02 : Enemy {
                 if (ShootTimer >= 0)
                 {
                     Movement();
+                }
+                Shoot();
+            }
+>>>>>>> master
+    }
+
+    public void Shoot()
+    {
+        ShootTimer -= Time.deltaTime;
+        if (ShootTimer <= 0)
+        {
+            delay = 1;
+            animator.SetBool("idle", false);
+            animator.SetBool("Attacking", true);
+            animator.SetBool("Runing", false);
+            Instantiate(Arrow, transform.position, ArrowShootDirection);
+            
+            ShootTimer = AuxShootTimer;
+        }
+    }
+}
+
+                if (ShootTimer >= 0)
+                {
+                    Movement();
 <<<<<<< HEAD
                     if (delay <= 0)
                     {
@@ -57,24 +82,3 @@ public class Enemy02 : Enemy {
         
         
 =======
-                }
-                Shoot();
-            }
->>>>>>> master
-    }
-
-    public void Shoot()
-    {
-        ShootTimer -= Time.deltaTime;
-        if (ShootTimer <= 0)
-        {
-            delay = 1;
-            animator.SetBool("idle", false);
-            animator.SetBool("Attacking", true);
-            animator.SetBool("Runing", false);
-            Instantiate(Arrow, transform.position, ArrowShootDirection);
-            
-            ShootTimer = AuxShootTimer;
-        }
-    }
-}
